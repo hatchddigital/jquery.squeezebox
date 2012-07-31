@@ -1,0 +1,33 @@
+/* Mixins */
+.transition (@properties: all, @time: .2s, @easing: ease-in-out) {
+    -webkit-transition: @properties @time @easing;
+    -moz-transition: @properties @time @easing;
+    -o-transition: @properties @time @easing;
+    -ms-transition: @properties @time @easing;
+    transition: @properties @time @easing;
+}
+
+/* Utilities */
+
+// Apply transitions to element */
+.ease {
+    .transition;
+}
+.ease-slide {
+    .transition(all, .5s, ease-in-out);
+}
+
+/* Components */
+
+// Squeezebox
+.squeezebox {
+    .squeezebox-head {
+        cursor: pointer;
+    }
+    .squeezebox-content {
+        overflow: hidden;
+    }
+    .collapse {
+        height: 0px !important;
+    }
+}
