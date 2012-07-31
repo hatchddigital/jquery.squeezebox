@@ -6,7 +6,10 @@ This Squeezebox jQuery plugin is simple and can be used by any developer in two 
 ## Usage
 
 ### HTML Markup
-The required markup is trivial. Each content area is a <em>pleat</em> which wraps the body of each piece of content. Each pleat must contain at least two elements. A squeezebox-head (which is the event trigger for user clicks) and a squeezebox-content area which is the copy to <em>shide</em>.
+The required markup is trivial. Each content area is a <em>pleat</em> which
+wraps the body of each piece of content. Each pleat must contain at least
+two elements. A squeezebox-head (which is the event trigger for user clicks)
+and a squeezebox-content area which is the copy to <em>shide</em>.
 
     *Note*: I'm using HAML markup for simplicity, and because it's useful to know.
 
@@ -19,5 +22,12 @@ The required markup is trivial. Each content area is a <em>pleat</em> which wrap
         .squeezebox-content
 
 ### JavaScript attach
+Simple jQuery plugin attach for any squeezebox elements you've built. There
+are, currently, no options required.
 
     $('.squeezebox').squeezebox();
+
+## Credits
+
+@author Jimmy Hillis <jimmy@hatchd.com.au>
+@see Hatchd Digital <http://hatchd.com.au>
