@@ -30,7 +30,10 @@
      */
 
     $.fn.squeezebox = function (options) {
-        options = options || {};
+        options = $.extend({
+            'toggle': true,
+            'show_initial': true
+        }, options);
         return this.each(function () {
             var $this = $(this)
               , squeezebox = new Squeezebox()
@@ -46,21 +49,28 @@
             pleat_contents.addClass('collapse');
             // Show the current (or first) element depending on which
             // is available to us
-            current = $this.find('.current');
-            if (!current.length) {
-                current = $this.find('.squeezebox-pleat')
-                    .first()
-                    .addClass('current')
-                    .removeClass('collapse');
+            if (options.show_initial) {
+                current = $this.find('.current');
+                if (!current.length) {
+                    current = $this.find('.squeezebox-pleat')
+                        .first()
+                        .addClass('current')
+                        .removeClass('collapse');
+                }
+                current.addClass('current')
+                    .find('.squeezebox-content')
+                        .removeClass('collapse');
             }
-            current.addClass('current')
-                .find('.squeezebox-content')
-                    .removeClass('collapse');
             // Event listener for all active buttons and switches
             pleats.find('.squeezebox-head').on('click', function (e) {
                 var $this = $(this)
                   , pleat = $this.parents('.squeezebox-pleat');
                 e.preventDefault();
+                if (options.toggle) {
+                    if (pleat.hasClass('current')) {
+                        return pleats.removeClass('current');
+                    }
+                }
                 pleats.removeClass('current');
                 pleat_contents.addClass('collapse');
                 $this.next('.squeezebox-content')
