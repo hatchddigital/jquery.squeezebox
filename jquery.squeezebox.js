@@ -43,7 +43,7 @@
             // Setup default height for each content box to fix transition
             // issue (doesn't work without a height set!)
             $(pleat_contents).each(function() {
-                $(this).css('height', $(this).height());
+                //$(this).css('height', $(this).height());
             });
             // Collapse all pleats to start with
             pleat_contents.addClass('collapse');
